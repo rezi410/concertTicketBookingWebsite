@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/loginRegister.css' %}" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="top-bar">
+      <div class="left-content">
+        <h2 class="title">Bileto &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <ul class="navigation">
+          <li><a href="{% url 'home'  %}">Home</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="LogIn">
+      <h2 style="color: #cd8c38" class="m-h2">Log In</h2>
+      <br />
+      <form method="post" style="color: #cd8c38" class="form-class">
+        {% csrf_token %} {{ login_form }}
+        <button type="submit">Log In</button>
+      </form>
+      <p class="text-center" style="color: white;">
+        Don't have an account? <a href="{% url 'register'  %}">Register</a>
+      </p>
+    </section>
+  
+  </body>
+</html>
+
+
+<style>
+   .top-bar {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navigation li {
+    margin-right: 1em;
+  }
+  
+  .navigation li a {
+    color:#cd8c38;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+  
+.center {
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  bottom: -100%;
+  transform: translate(-50%, -50%);
+  width: 460px;
+  height: 880px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(205, 140, 56, 0.15));
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+ 
+}
+
+  .LogIn {
+    padding: 2em;
+    background-color:#333;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 2em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  .LogIn h2 {
+    color: #cd8c38;
+    margin-top: 0;
+    padding-left: 100px;
+  }
+  
+  h2{
+    font-size: 35px;
+  }
+
+  .LogIn form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .LogIn form label {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  
+  .LogIn form input[type="text"],
+  .LogIn form input[type="password"] {
+    border: none;
+    padding: 0.5em;
+    font-size: 1.1em;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(154, 137, 137, 0.2);
+    margin-bottom: 1em;
+    width: 100%;
+  }
+  
+  .LogIn form button {
+    background-color: #cd8c38;
+    color: white;
+    border: none;
+    padding: 0.5em 2em;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(144, 135, 135, 0.2);
+  }
+  
+  .LogIn form button:hover {
+    background-color: #c2741f;
+  }
+  
+  .LogIn p {
+    margin-top: 1em;
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  .LogIn p a {
+    color: #cd8c38;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .LogIn p a:hover {
+    text-decoration: underline;
+  }
+
+
+
+
+  
+</style>
+
+</style>

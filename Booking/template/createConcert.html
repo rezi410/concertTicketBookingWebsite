@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Create Concert</title>
+    <link rel="stylesheet" href="{% static 'css/createConcert.css' %}" />
+  </head>
+  <body>
+    <h1>Create Concert</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">
+        {% if form.instance.pk %}Update{% else %}Create{% endif %} Concert
+      </button>
+    </form>
+    <div class="signup_link">
+      Changed Your Mind? <a href="{% url 'adminHome' %}">Cancel</a>
+    </div>
+  </body>
+</html>

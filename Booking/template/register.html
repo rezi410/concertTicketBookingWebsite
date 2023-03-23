@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/loginRegister.css' %}" />
+  </head>
+  <body>
+    <section class="top-bar">
+      <div class="left-content">
+        <h2 class="title">Bileto</h2>
+        <ul class="navigation">
+          <li><a href="{% url 'home'  %}" class="home-link">Home</a></li>
+        </ul>
+      </div>
+    </section>
+    <div class="center">
+      <h1>Regsiter</h1>
+    <br>
+  <form method="post" style="color: #cd8c38" class="form-class">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <br>
+    <!-- <button type="submit">Sign up</button> -->
+    <input type="submit" value="Register">
+        <div class="signup_link">
+          Already a member? <a href="{% url 'login'  %}">login</a>
+        </div>
+  </form>
+</div>
+    <br>
+    
+  </body>
+</html>

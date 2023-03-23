@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <title>Ticket Details</title>
+</head>
+
+<body>
+    <section class="top-bar">
+        <div class="left-content">
+            <h2 class="title">Bileto</h2>
+            <ul class="navigation">
+              <li><a href="{% url 'home'  %}">Home</a></li>
+            </ul>
+        </div>
+        <div class="right-content">
+          {% if user.is_authenticated %}
+          <a class="sign-welcome" href="#"><span  style="color:#adadad">Welcome! {{user.username}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><br />
+          <a class="sign-register" href="{% url 'logout'  %}">Logout</a>
+          {% else %}
+          <a class="sign" href="{% url 'login'  %}">Login</a>
+          <a class="sign" href="{% url 'register'  %}">Register</a>
+          {% endif %}
+        </div>
+    </section>
+    <section class="main-container">
+        <div class="sidebar">
+            <form action="#">
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Language</h3>
+                    <input type="checkbox" id="english" name="english" value="english">
+                    <label for="english">English</label><br>
+                </div>
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Time</h3>
+                    <input type="radio" id="morning" name="time" value="morning">
+                    <label for="morning">Morning</label><br>
+                    <input type="radio" id="night" name="time" value="night">
+                    <label for="night">Night</label><br>
+                </div>
+                <div class="sidebar-groups">
+                    <a href="#" class="btn-l btn">Apply Filters</a>
+                </div>
+            </form>
+        </div>
+        <div class="concerts-container">
+            <div class="upcoming-img-box">
+              {% csrf_token %}
+              <img src="{% static "images/upcoming.jpg" %}" alt="home" />
+                <p class="upcoming-title">{{ concert.date }} / {{ concert.time }}</p>
+                <div class="buttons">
+                    <a href="{% url 'payment' id %}" class="btn">Buy Ticket</a>
+                   
+                </div>
+            </div>
+            <div class="current-concerts">
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">{{ concert.title }}</h3>
+                    <p style="color:#cd8c38;" class="location-p">Location: </p>
+                    <p style="color:#cd8c38;">{{ concert.location }}</p>
+                    <p style="color:#cd8c38;" class="location-p">Date: </p>
+                    <p style="color:#cd8c38;">{{ concert.date }} / {{ concert.time }}</p>
+                </div>
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Type & Price</h3>
+                    <!-- <input type="checkbox" id="gold" name="gold" value="gold"> -->
+                    <p>{{ gold.type }}: <span style="color:#cd8c38;">${{ gold.price }} </span>--&nbsp; total <span style="color:#cd8c38;">{{ gold.numOfTicket }} </span> are available!</p><br>
+
+                    <!-- <input type="checkbox" id="silver" name="silver" value="silver"> -->
+                    <p>{{ sliver.type }}: <span style="color:#cd8c38;">${{ sliver.price }} </span> --&nbsp; total <span style="color:#cd8c38;"> {{ sliver.numOfTicket }} </span>are available!</p><br>
+                    <!-- <input type="checkbox" id="bronze" name="bronze" value="bronze"> -->
+                    <p>{{ bronze.type }}: <span style="color:#cd8c38;">${{ bronze.price }} </span>--&nbsp; total <span style="color:#cd8c38;">{{ bronze.numOfTicket }} </span>are available!</p>
+                </div>
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Ticket Description</h3>
+                    <div class="txt_field">
+                      <p>{{ concert.description }}</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'payment' id %}" class="btn-buy">Buy Ticket</a>
+        </div>
+    </section>
+    
+</body>
+
+</html>

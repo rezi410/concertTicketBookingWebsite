@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Home</title>
+</head>
+
+<body>
+    <section class="top-bar">
+        <div class="left-content">
+            <h2 class="title">Bileto</h2>
+            <ul class="navigation">
+                <li><a href="{% url 'home'  %}">Home</a></li>
+                <li><a class="{% url 'home'  %}" href="#">Concerts</a></li>
+                <li><a class="active" href="{% url 'adminHome'  %}">Admin</a></li>
+            </ul>
+        </div>
+        <div class="right-content">
+            {% if user.is_authenticated %}
+            <a class="sign-welcome" href="#"><span  style="color:#adadad">Welcome! {{user.username}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><br />
+            <a class="sign-register" href="{% url 'logout'  %}">Logout</a>
+            {% else %}
+            <a class="sign" href="{% url 'login'  %}">Login</a>
+            <a class="sign" href="{% url 'register'  %}">Register</a>
+            {% endif %}
+        </div>
+    </section>
+    <section class="main-container">
+        <div class="sidebar">
+            <form action="#">
+              {% csrf_token %}
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Categories</h3>
+                    <input type="checkbox" id="adventure" name="adventure" value="adventure">
+                    <label for="adventure">Recital</label><br>
+                    <input type="checkbox" id="action" name="action" value="action">
+                    <label for="action">Theatrical</label><br>
+                    <input type="checkbox" id="animation" name="animation" value="animation">
+                    <label for="animation">Classical</label><br>
+                    <input type="checkbox" id="comedy" name="comedy" value="comedy">
+                    <label for="comedy">Rock</label><br>
+                </div>
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Language</h3>
+                    <input type="checkbox" id="english" name="english" value="english">
+                    <label for="english">English</label><br>
+                    <input type="checkbox" id="spanish" name="spanish" value="spanish">
+                    <label for="spanish">Spanish</label><br>
+                </div>
+                <div class="sidebar-groups">
+                    <h3 class="sg-title">Time</h3>
+                    <input type="radio" id="morning" name="time" value="morning">
+                    <label for="morning">Morning</label><br>
+                    <input type="radio" id="night" name="time" value="night">
+                    <label for="night">Night</label><br>
+                </div>
+                <div class="sidebar-groups">
+                    <a href="#" class="btn-l btn">Apply Filters</a>
+                </div>
+            </form>
+        </div>
+        <div class="concerts-container">
+            <div class="current-concerts">
+              {% for concert in concerts %}
+              <a href="{% url 'detail' concert.id %}">
+                <div class="current-concert">
+                    <div class="cm-img-box">
+                      <img src="{% static "images/upcoming.jpg" %}" alt="home" />
+                    </div>
+                    <h3>{{ concert.title }}</h3>
+                    <br>
+                    <div class="venues-info">
+                        <p class="type">Ticket Info: </p>
+                        <p class="type-name">{{ concert.location }}</p>
+                        <p class="type-name">{{ concert.date }}</p>
+                        <p class="type-name">{{ concert.time }}</p>
+                    </div>
+                    <div class="venues-info">
+                        <a href="#" class="desc">{{ concert.description }}</a>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+        
+    </section>
+</body>
+</html> 

@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Joan', serif;
+}
+a {
+  text-decoration: none;
+  color: #cd8c38;
+}
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #cd8c38;
+  border-radius: 2rem;
+  color: #1e1f26;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #92601f;
+}
+.btn-l {
+  width: 100%;
+  text-align: center;
+}
+body {
+  background-color: #1e1f26;
+  display: grid;
+  grid-template-columns: 1000px;
+  justify-content: space-evenly;
+}
+/* top bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+}
+.left-content,
+.right-content {
+  display: flex;
+  align-items: center;
+}
+.title {
+  margin-right: 3rem;
+  color: #cd8c38;
+}
+.navigation {
+  display: flex;
+  list-style: none;
+}
+.navigation li {
+  margin-right: 1rem;
+}
+.navigation li a:hover {
+  color: #cd8c38;
+}
+.active {
+  color: #cd8c38;
+}
+
+.menu {
+  margin-left: 0.8rem;
+}
+
+.filter,
+.menu {
+  display: none;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* main container */
+.main-container {
+  color: #adadad;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+}
+/* sidebar */
+.sidebar {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(205, 140, 56, 0.15));
+  backdrop-filter: blur(5px);
+  height: fit-content;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+}
+.sidebar-groups {
+  margin-bottom: 1rem;
+}
+.sg-title {
+  margin-bottom: 0.5rem;
+  color: #cd8c38;
+}
+input {
+  margin-bottom: 0.6rem;
+}
+input[type='checkbox']:checked {
+  accent-color: #cd8c38;
+}
+input[type='radio']:checked {
+  accent-color: #cd8c38;
+}
+label {
+  margin-left: 0.5rem;
+}
+
+.upcoming-img-box {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.upcoming-title {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: #cd8c38;
+  background-color: #1e1f26;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid #cd8c38;
+  font-weight: 500;
+}
+.buttons {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+.btn-alt {
+  background-color: #1e1f26;
+  color: #cd8c38;
+  border: 1px solid #cd8c38;
+  margin-left: 1rem;
+}
+.btn-alt:hover {
+  color: #1e1f26;
+  background-color: #cd8c38;
+}
+
+.concerts-container {
+  padding-bottom: 2rem;
+}
+.current-concerts {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+.current-concert {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(205, 140, 56, 0.15));
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.cm-img-box {
+  position: relative;
+  height: 150px;
+  width: auto;
+  margin-bottom: 1rem;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+.concert-title {
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+.booking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.price {
+  color: #cd8c38;
+}
+
+.sign {
+  color: #cd8c38;
+  width: 60px;
+  height: 40px;
+  background-color: #1e1f26;
+  font-size: medium;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.top-sell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.see-all {
+  text-decoration: underline;
+  font-size: 16.5px;
+  font-weight: bold;
+}
+
+.location,
+.date,
+.type-name {
+  font-size: 15px;
+}
+
+.venue {
+  font-weight: bold;
+}
+
+.type {
+  font-weight: bold;
+}
+
+.price-title {
+  font-weight: bold;
+  color: #cd8c38;
+}
+
+.txt_field input {
+  width: 6%;
+  padding: 0 5px;
+  height: 30px;
+  background: #cd8c38;
+  border-color: bisque;
+  border-radius: 5px;
+}
+
+.location {
+  font-weight: bold;
+  font-size: 16.5px;
+}
+
+.make-pay {
+  display: inline-block;
+  padding: 1rem 1rem;
+  background-color: #cd8c38;
+  border-radius: 2rem;
+  color: #1e1f26;
+  transition: 0.3s;
+  width: 200px;
+  margin-left: 500px;
+  margin-right: 800px;
+  margin-bottom: 4px;
+  font-size: 16.5px;
+}
+
+.make-pay-buttons {
+  position: absolute;
+  bottom: -2.6rem;
+  left: 1rem;
+}
+/* .username {
+  color: #fff;
+}
+.password {
+  color: #fff;
+}
+.LogIn {
+  color: #cd8c38;
+}
+
+p {
+  color: white;
+}
+img {
+  width: 5em;
+  height: 5em;
+} */
+
+
+.venues-info{
+  margin-bottom: 2rem;
+}
+
+.desc{
+  color:#adadad;
+}
+
+.nav-link{
+  display: flex;
+  text-align: center;
+}
+
+.nav-link-left{
+  padding-right: 20px;
+  color:#cd8c38;
+}
+
+.nav-link-right{
+  color:#cd8c38;
+}
+
+.m-time{
+  padding-bottom:1rem;
+}
+
+
+.sign-welcome{
+  margin-top: 1px;
+  
+}
+
+.sign-register{
+  margin-top: 1px;
+}
+
+
+.btn-buy{
+  display: inline-block;
+  padding: 0.9rem 3.5rem;
+  background-color: #cd8c38;
+  border-radius: 2rem;
+  color: #1e1f26;
+  transition: 0.3s;
+  margin-left: 17rem;
+  margin-top: 1.3rem;
+}
